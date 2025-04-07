@@ -1,0 +1,79 @@
+import React from "react";
+
+const productBacklog = [
+  { id: 1, name: "Diseño de Interfaz", alias: "UI/UX", sprint: 1, prioridad: "Alta" },
+  { id: 2, name: "Registro de usuarios", alias: "Auth", sprint: 1, prioridad: "Alta" },
+  { id: 3, name: "Vista de Productos", alias: "Catalog", sprint: 2, prioridad: "Media" },
+  { id: 4, name: "Servicios", alias: "Inf/Menu", sprint: 2, prioridad: "Alta" },
+  { id: 5, name: "Carrito de Compras", alias: "Cart", sprint: 3, prioridad: "Alta" },
+  { id: 6, name: "Pago Seguro", alias: "Payment", sprint: 4, prioridad: "Alta" },
+];
+
+const sprintBacklog = [
+  { id: 1, task: "Wireframes", responsible: "Diseñador UX/UI", estado: "Completado" },
+  { id: 2, task: "Prototipos", responsible: "Diseñador UX/UI", estado: "En proceso" },
+  { id: 3, task: "Implementación Auth", responsible: "Dev Backend", estado: "Pendiente" },
+  { id: 4, task: "Pruebas de seguridad", responsible: "QA", estado: "Pendiente" },
+  { id: 5, task: "Almacenamiento en localStorage", responsible: "Dev Frontend", estado: "Completado" },
+  { id: 6, task: "Integración de Redux para carrito", responsible: "Dev Frontend", estado: "Completado" },
+  { id: 7, task: "Diseño de vista del carrito", responsible: "Dev Frontend", estado: "En proceso" },
+  { id: 8, task: "Estilización con Styled Components", responsible: "Dev Frontend", estado: "Completado" },
+  { id: 9, task: "Simulación de pasarela de pago", responsible: "Dev Backend", estado: "En proceso" },
+  { id: 10, task: "Pruebas de interacción con usuario", responsible: "QA", estado: "En proceso" },
+];
+
+const App = () => {
+  return (
+    <div className="p-6 bg-gray-100 min-h-screen">
+      <h1 className="text-2xl font-bold mb-4">Planificación de Sprint</h1>
+
+      <h2 className="text-xl font-semibold mt-4">Product Backlog</h2>
+      <table className="min-w-full bg-white border border-gray-300 mt-2">
+        <thead>
+          <tr className="bg-gray-200">
+            <th className="border p-2">ID</th>
+            <th className="border p-2">Historia</th>
+            <th className="border p-2">Alias</th>
+            <th className="border p-2">Sprint</th>
+            <th className="border p-2">Prioridad</th>
+          </tr>
+        </thead>
+        <tbody>
+          {productBacklog.map((item) => (
+            <tr key={item.id} className="border">
+              <td className="border p-2">{item.id}</td>
+              <td className="border p-2">{item.name}</td>
+              <td className="border p-2">{item.alias}</td>
+              <td className="border p-2">Sprint {item.sprint}</td>
+              <td className="border p-2">{item.prioridad}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      <h2 className="text-xl font-semibold mt-6">Sprint Backlog</h2>
+      <table className="min-w-full bg-white border border-gray-300 mt-2">
+        <thead>
+          <tr className="bg-gray-200">
+            <th className="border p-2">ID</th>
+            <th className="border p-2">Tarea</th>
+            <th className="border p-2">Responsable</th>
+            <th className="border p-2">Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          {sprintBacklog.map((task) => (
+            <tr key={task.id} className="border">
+              <td className="border p-2">{task.id}</td>
+              <td className="border p-2">{task.task}</td>
+              <td className="border p-2">{task.responsible}</td>
+              <td className="border p-2">{task.estado}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+};
+
+export default App;
